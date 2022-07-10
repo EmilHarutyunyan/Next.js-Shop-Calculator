@@ -1,0 +1,37 @@
+[
+  {
+    "value": "card",
+    "label": "Credit/Debit Card",
+    "icon": "payment-card"
+  },
+  {
+    "value": "sofort",
+    "label": "Sofort",
+    "icon": "payment-sofort"
+  },
+  {
+    "value": "applePay",
+    "label": "Apple Pay",
+    "icon": "payment-apple-pay"
+  },
+  {
+    "value": "giropay",
+    "label": "Giropay",
+    "icon": "payment-giropay"
+  },
+  {
+    "value": "googlePay",
+    "label": "Google Pay",
+    "icon": "payment-google-pay"
+  },
+  {
+    "value": "sepa",
+    "label": "Sepa",
+    "icon": "payment-sepa"
+  },
+  {
+    "value": "iDeal",
+    "label": "iDeal",
+    "icon": "payment-ideal"
+  }
+]

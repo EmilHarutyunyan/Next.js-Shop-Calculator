@@ -1,0 +1,13 @@
+// Third-party imports
+
+// Global imports
+
+// Local imports
+
+////////////////////////////////////////////////////////////////////////////////
+
+const initialState = {
+	guardrobe: [],
+}
+
+export default initialState

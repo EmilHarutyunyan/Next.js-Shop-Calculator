@@ -1,0 +1,25 @@
+[
+	{
+		"Header": "Name",
+		"accessor": "name",
+		"sortType": "caseInsensitive",
+		"sortDescFirst": "false"
+	},
+	{
+		"Header": "Slug",
+		"accessor": "slug",
+		"sortType": "caseInsensitive"
+	},
+	{
+		"Header": "Published",
+		"accessor": "published",
+		"disableGlobalFilter": true,
+		"disableSortBy": true
+	},
+	{
+		"Header": "Date",
+		"accessor": "date",
+		"disableGlobalFilter": true,
+		"sortType": "sortDate"
+	}
+]

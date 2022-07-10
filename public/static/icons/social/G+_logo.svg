@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34.117" height="21.004" viewBox="0 0 34.117 21.004">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rechteck_160" data-name="Rechteck 160" width="34.117" height="21.004" fill="#f4f1f0"/>
+    </clipPath>
+  </defs>
+  <g id="G__logo" data-name="G+_logo" clip-path="url(#clip-path)">
+    <path id="Pfad_561" data-name="Pfad 561" d="M20.081,9.872H10.314l.011,2.8h6.585c-.778,3.407-3.182,5.495-6.409,5.495a7.662,7.662,0,1,1,5.21-13.278l2.16-1.863A10.5,10.5,0,1,0,10.5,21c5.57,0,9.6-4.248,9.6-10.048Z" transform="translate(0 0)" fill="#f4f1f0"/>
+    <path id="Pfad_562" data-name="Pfad 562" d="M45.473,12.868H41.442V8.837H38.87v4.031H34.839V15.44H38.87v4.031h2.572V15.44h4.031Z" transform="translate(-11.356 -2.881)" fill="#f4f1f0"/>
+  </g>
+</svg>

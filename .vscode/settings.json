@@ -1,0 +1,39 @@
+{
+	"editor.rulers": [121],
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.renderWhitespace": "none",
+	"[javascript]": {
+		"editor.tabSize": 4,
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"[json]": {
+		"editor.tabSize": 4
+	},
+	"[html]": {
+		"editor.tabSize": 4
+	},
+	"[css]": {
+		"editor.tabSize": 2
+	},
+	"files.watcherExclude": {
+		"**/.next/**": true,
+		"storybook-static": true
+	},
+	"files.exclude": {
+		"**/storybook-static": true,
+		"**/.next": true,
+		"**/yarn-error.log": true
+	},
+	"search.exclude": {
+		"**/.next": true,
+		"storybook-static": true
+	},
+	"workbench.colorTheme": "One Dark Pro",
+	"workbench.editor.showTabs": true,
+	"workbench.tree.indent": 16
+}

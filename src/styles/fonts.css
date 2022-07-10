@@ -1,0 +1,93 @@
+@font-face {
+	font-family: "TradeGothic";
+	src: url("/static/fonts/TradeGothicLTPro-Bold.eot");
+	src: url("/static/fonts/TradeGothicLTPro-Bold.eot?#iefix") format("embedded-opentype"),
+		url("/static/fonts/TradeGothicLTPro-Bold.woff2") format("woff2"),
+		url("/static/fonts/TradeGothicLTPro-Bold.woff") format("woff"),
+		url("/static/fonts/TradeGothicLTPro-Bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url("/static/fonts/Graphik-SemiboldItalic.eot");
+	src: url("/static/fonts/Graphik-SemiboldItalic.eot?#iefix")
+			format("embedded-opentype"),
+		url("/static/fonts/Graphik-SemiboldItalic.woff2") format("woff2"),
+		url("/static/fonts/Graphik-SemiboldItalic.woff") format("woff"),
+		url("/static/fonts/Graphik-SemiboldItalic.ttf") format("truetype");
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url("/static/fonts/Graphik-Medium.eot");
+	src: url("/static/fonts/Graphik-Medium.eot?#iefix") format("embedded-opentype"),
+		url("/static/fonts/Graphik-Medium.woff2") format("woff2"),
+		url("/static/fonts/Graphik-Medium.woff") format("woff"),
+		url("/static/fonts/Graphik-Medium.ttf") format("truetype");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url("/static/fonts/Graphik-Semibold.eot");
+	src: url("/static/fonts/Graphik-Semibold.eot?#iefix") format("embedded-opentype"),
+		url("/static/fonts/Graphik-Semibold.woff2") format("woff2"),
+		url("/static/fonts/Graphik-Semibold.woff") format("woff"),
+		url("/static/fonts/Graphik-Semibold.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url("/static/fonts/Graphik-RegularItalic.eot");
+	src: url("/static/fonts/Graphik-RegularItalic.eot?#iefix") format("embedded-opentype"),
+		url("/static/fonts/Graphik-RegularItalic.woff2") format("woff2"),
+		url("/static/fonts/Graphik-RegularItalic.woff") format("woff"),
+		url("/static/fonts/Graphik-RegularItalic.ttf") format("truetype");
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url("/static/fonts/Graphik-Regular.eot");
+	src: url("/static/fonts/Graphik-Regular.eot?#iefix") format("embedded-opentype"),
+		url("/static/fonts/Graphik-Regular.woff2") format("woff2"),
+		url("/static/fonts/Graphik-Regular.woff") format("woff"),
+		url("/static/fonts/Graphik-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Basic-Sans";
+	src: url("/static/fonts/BasicSans-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Basic-Sans";
+	src: url("/static/fonts/BasicSans-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Tiempos";
+	src: url("/static/fonts/TiemposHeadline-Medium.otf");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Tiempos";
+	src: url("/static/fonts/TiemposHeadline-Regular.otf");
+	font-weight: 400;
+	font-style: normal;
+}
