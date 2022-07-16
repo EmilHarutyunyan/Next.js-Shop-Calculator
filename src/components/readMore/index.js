@@ -12,7 +12,7 @@ function ReadMore({desc}) {
 		setIsReadMore(!isReadMore)
   }
   return (
-		<ReadMoreWrap>
+		<ReadMoreWrap >
 			<Text
 				onClick={() => {
 					setShowLinks(show => !show)
@@ -22,9 +22,7 @@ function ReadMore({desc}) {
 				{!isReadMore ? <>Read more +</> : <>Close - </>}
 			</Text>
 			<Content ref={headerRef}>
-				<Descrip ref={childrenRef}>
-					{desc}
-				</Descrip>
+				<Descrip ref={childrenRef}>{desc}</Descrip>
 			</Content>
 		</ReadMoreWrap>
   )

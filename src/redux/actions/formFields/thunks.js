@@ -55,8 +55,8 @@ const processValues = values => {
 	processedValues["productAgeTimescale"] = "years"
 	processedValues["productAgeAmount"] = 2022 - Number(values.acquisitionDateYear)
 	processedValues["yearlyLaundryFrequency"] = Number(values.laundryFrequency)
-	processedValues["manufacturingCountryId"] = values.manufacturingCountry
-	processedValues["countryOfResidenceId"] = values.countryOfResidence
+	processedValues["manufacturingCountryName"] = values.manufacturingCountry
+	processedValues["countryOfResidenceName"] = values.countryOfResidence
 	processedValues["washingTemperature"] = values.washMachineTemperatureSetting
 
 	return processedValues

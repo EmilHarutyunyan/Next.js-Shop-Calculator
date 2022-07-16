@@ -37,17 +37,17 @@ export const setMaterialDistrit = materialDistribution => {
 	}
 }
 
-export const setManufactCountry = manufacturingCountryId => {
+export const setManufactCountry = manufacturingCountryName => {
 	return {
 		type: actionTypes.calculator.SET_MANUFACTURING_COUNTRY,
-		payload: manufacturingCountryId,
+		payload: manufacturingCountryName,
 	}
 }
-export const setCountryOfRes = countryOfResidenceId => {
+export const setCountryOfRes = countryOfResidenceName => {
 	
 	return {
 		type: actionTypes.calculator.SET_COUNTRY_OF_RESIDENCELD,
-		payload: countryOfResidenceId,
+		payload: countryOfResidenceName,
 	}
 }
 
@@ -73,6 +73,12 @@ export const setWashingTemperature = washingTemperature => {
 	return {
 		type: actionTypes.calculator.SET_WASHING_TEMPERATURE,
 		payload: washingTemperature,
+	}
+}
+export const setReset = () => {
+	
+	return {
+		type: actionTypes.calculator.SET_RESET,
 	}
 }
 // export const setWashing = washing => {

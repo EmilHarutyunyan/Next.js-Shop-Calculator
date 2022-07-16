@@ -3,7 +3,7 @@ import {  useSelector } from "react-redux"
 import { DRYING_METHOD, TEMPERATURE, WASH_MODE } from "@/data/WASHINGDATA"
 import {Info} from "./WashingInfo.styles"
 function joinData(DATA,elem) {
-	return DATA.filter(item => item.text === elem)
+	return DATA.filter(item => item.name === elem)
 }
 
 function WashingInfo() {
@@ -12,14 +12,19 @@ function WashingInfo() {
 	const washSet = joinData(WASH_MODE, calc.washMachineSetting)
 	const washTemp = joinData(TEMPERATURE, calc.washingTemperature)
 	const dryingMet = joinData(DRYING_METHOD, calc.dryingMethod)
-	
+	const countryOfResidenceName = calc.countryOfResidenceName
   return (
-		<Info>
-			<span>{monthly}X</span>
-			<img src={washSet[0].icon} alt={washSet[0].text} />
-			<img src={washTemp[0].icon} alt={washSet[0].text} />
-			<img src={dryingMet[0].icon} alt={washSet[0].text} />
-		</Info>
+		<>
+			<Info>
+				<span>{monthly}X</span>
+				<img src={washSet[0].icon} alt={washSet[0].name} />
+				<img src={washTemp[0].icon} alt={washSet[0].name} />
+				<img src={dryingMet[0].icon} alt={washSet[0].name} />
+			</Info>
+			<div>
+				<p>{countryOfResidenceName}</p>
+			</div>
+		</>
   )
 }
 

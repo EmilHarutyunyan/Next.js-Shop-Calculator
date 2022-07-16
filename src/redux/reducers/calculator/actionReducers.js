@@ -3,7 +3,7 @@
 // Global imports
 // import actionTypes from "@/redux/actionTypes"
 import actionTypes from "../../../redux/actionTypes"
-
+import initialState from "./initialState"
 // Local imports
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,10 +25,10 @@ const calculatorActionReducers = {
 		draft.materialDistribution = action.payload.materialDistribution
 	},
 	[actionTypes.calculator.SET_MANUFACTURING_COUNTRY]: (draft, action) => {
-		draft.manufacturingCountryId = action.payload.manufacturingCountryId
+		draft.manufacturingCountryName = action.payload.manufacturingCountryName
 	},
 	[actionTypes.calculator.SET_COUNTRY_OF_RESIDENCELD]: (draft, action) => {
-		draft.countryOfResidenceId = action.payload.countryOfResidenceId
+		draft.countryOfResidenceName = action.payload.countryOfResidenceName
 	},
 	[actionTypes.calculator.SET_MONTLY_LAUNDRY_FREQUENCY]: (draft, action) => {
 		draft.monthlyLaundryFrequency = action.payload.monthlyLaundryFrequency
@@ -42,8 +42,12 @@ const calculatorActionReducers = {
 	[actionTypes.calculator.SET_WASHING_TEMPERATURE]: (draft, action) => {
 		draft.washingTemperature = action.payload.washingTemperature
 	},
-	// [actionTypes.calculator.SET_WASHING]: (draft, action) => {
+	[actionTypes.calculator.SET_RESET]: (draft, action) => {
 		
+		draft = initialState
+	},
+	// [actionTypes.calculator.SET_WASHING]: (draft, action) => {
+
 	// 	draft.washMachineSetting = action.payload.washing.washMachineSetting
 	// 	draft.dryingMethod = action.payload.washing.dryingMethod
 	// 	draft.washingTemperature = action.payload.washing.washingTemperature

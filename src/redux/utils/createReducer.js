@@ -19,6 +19,7 @@ const createReducer = (actionReducers, initialState) =>
 	// The reducer
 	
 	(state = initialState, action) =>
+	
 		!!actionReducers[action.type]
 			? produce(state, draft => {
 					

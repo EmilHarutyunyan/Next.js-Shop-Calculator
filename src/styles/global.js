@@ -102,6 +102,9 @@ const GlobalStyle = createGlobalStyle`
 	font-weight: 400;
 	font-style: normal;
 }
+html {
+	 scroll-behavior: smooth;
+}
 	html, body {
 		font-family: 'Basic-Sans';
 		font-weight: 500;
@@ -119,7 +122,23 @@ const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		color: ${({ theme }) => theme.colors.black0};
 		font-size: 18px;
-		line-height: 1.6;		
+		line-height: 1.6;	
+
+
+
+		::-webkit-scrollbar {
+			width: 8px;
+		}
+		::-webkit-scrollbar-track {
+			background: #f1f1f1; 
+		}
+		::-webkit-scrollbar-thumb {
+			background: #323536; 
+			border-radius:3px;
+		}
+		::-webkit-scrollbar-thumb:hover {
+			background: #ee7444; 
+		} 	
 	}
 
 	#__next {

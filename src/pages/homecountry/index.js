@@ -14,8 +14,8 @@ function Homecountry() {
 	const dispatch = useDispatch()
 	const calc = useSelector(({ calculator }) => calculator)
 	
-	const countryOfResidenceId = calc.countryOfResidenceId
-	const [countryName, setCountryName] = useState(countryOfResidenceId)
+	const countryOfResidenceName = calc.countryOfResidenceName
+	const [countryName, setCountryName] = useState(countryOfResidenceName)
 
 	
 
@@ -31,8 +31,8 @@ function Homecountry() {
 		}
 	}
 	const addCountryHome = async () => {
-		const countryOfResidenceId = countryName
-		await dispatch(calculatorActions.setCountryOfRes({countryOfResidenceId}))
+		const countryOfResidenceName = countryName
+		await dispatch(calculatorActions.setCountryOfRes({countryOfResidenceName}))
 		
 
 		
@@ -56,7 +56,7 @@ function Homecountry() {
 				</CountryWrap>
 				<NavBtn
 					pathPrev="/time"
-					pathNext={countryName ? "/choose-gender" : ""}
+					pathNext={countryName ? "/checkresult" : ""}
 					navClick={navClick}
 				/>
 			</Wrapper>

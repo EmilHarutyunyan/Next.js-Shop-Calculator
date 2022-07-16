@@ -65,6 +65,14 @@ export const BtnItem = styled.div`
 	font-weight: bold;
 	font-size: 14px;
 `
+export const Span = styled.span`
+	font-family: "Tiempos";
+	color: ${({ theme }) => theme.colors.black0};
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	line-height: 22px;
+`
 export const BtnOne = styled.button`
 			all: unset;
 			border: 1px solid ${({ theme }) => theme.colors.black0};

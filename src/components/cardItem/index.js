@@ -6,29 +6,28 @@ function CardItem({ cards, width, height, handlerCard = f => f, handleRouter=f=>
 		<Wrapper>
 			{cards &&
 				cards.map((card,idx) => {
-					const { icon, text, _id } = card
+					const { icon, text, _id, name } = card
 					
 					return (
 						<Items
 							key={idx}
 							onClick={e => {
-
-								handlerCard(card.text)
+								handlerCard(card.name)
 								handleRouter()
 							}}
 							className={
-								cardSelect === card.text
+								cardSelect === card.name
 									? ""
-									: cardSelect && cardSelect !== card.text
+									: cardSelect && cardSelect !== card.name
 									? "no-active"
 									: ""
 							}
 						>
 							<Item width={width} height={height}>
 								<Icon>
-									<img src={icon} alt={text} />
+									<img src={icon} alt={name} />
 								</Icon>
-								<AddText>{text}</AddText>
+								<AddText>{name}</AddText>
 							</Item>
 						</Items>
 					)

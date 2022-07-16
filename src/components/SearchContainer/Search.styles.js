@@ -72,7 +72,7 @@ export const Input = styled.input`
 
 export const ListContainer = styled.ul`
 	width: 200px;
-	background-color: #F5F5F5;
+	background-color: #f5f5f5;
 	position: absolute;
 	top: ${elementHeight};
 	left: 0;
@@ -81,6 +81,7 @@ export const ListContainer = styled.ul`
 	list-style: none;
 	z-index: 100;
 	margin-top: 20px;
+
 	
 `
 

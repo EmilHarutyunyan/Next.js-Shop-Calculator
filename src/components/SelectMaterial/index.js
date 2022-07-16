@@ -72,6 +72,7 @@ function SelectMaterial({ materialData, handleText, materialThis }) {
 									<SelectItem
 										key={_id}
 										onClick={() => {
+											debugger
 											setShowLinks(show => !show)
 											setSelectValue({ _id, name })
 											handleText(oldName, { name, _id })

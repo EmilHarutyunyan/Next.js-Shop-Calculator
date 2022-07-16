@@ -20,11 +20,12 @@ import router from "next/router"
 import { useState } from "react"
 import CardResult from "../../components/cardResult"
 import { getJwtToken } from "../../lib/jsUtils"
-
-
+import FashionBenchmark from "../../components/fashionBencmark"
+import { useDispatch } from "react-redux"
+import { calculatorActions } from "@/redux/actions"
 function Results() {
 	const [user, setUSer] = useState(getJwtToken())
-
+	const dispatch = useDispatch()
 	const handleHref = (href)  => {
 		// e.preventDefault()
 		router.push(href)
@@ -33,20 +34,20 @@ function Results() {
 	return (
 		<Wrapper>
 			<ResultsWrap>
-				{/* <VideoBanner
+				<VideoBanner
 					videoSrc={
 						"https://footprint-b2c.s3.eu-central-1.amazonaws.com/Textil.mp4"
 					}
-				/> */}
-				<HeroBanner image={"/static/images/brown.webp"} />
-				<Title>You could do more.</Title>
+				/>
+
+				<Title>You could do better.</Title>
 				<InfItem>
 					<InfItems>
 						<div>
 							<InfTex>This much water was used for your item</InfTex>
 
 							<InfoCalc
-								title={"Manufactoring Phase"}
+								title={"Manufacturing Phase"}
 								count={11.721}
 								icon={"/static/svg/results/drop.svg"}
 								weight={"l"}
@@ -80,7 +81,7 @@ function Results() {
 							</div>
 						</Equa>
 					</InfItems>
-					{user &&
+					{user && (
 						<InfItems>
 							<div>
 								<InfTex>
@@ -88,7 +89,7 @@ function Results() {
 								</InfTex>
 
 								<InfoCalc
-									title={"Manufactoring Phase"}
+									title={"Manufacturing Phase"}
 									count={13}
 									icon={"/static/svg/results/cloud.svg"}
 									weight={"kg"}
@@ -120,37 +121,52 @@ function Results() {
 								</div>
 							</Equa>
 						</InfItems>
-					}
+					)}
 				</InfItem>
-				 {
-					user && <div>
-						<InfTex>This is your items Ranking</InfTex>
-						<p>Your Shirt ranks on position <b>28</b> among <b>500</b> other unique combinations of inputs entered for Shirts. It is better than <b>1.15%</b> of total <b>87</b> Shirts evaluate with the Staiy Product Environmental Footprint Calculator.</p>
-						<Socials title={'Tell your friends'} />
-						<CardResult />
-						<BtnItem >
-							<button onClick={() => handleHref('/wardrobe')}>
-								SEE YOUR WARDROBE
+				{
+					<div>
+						{user && (
+							<div className="user-info">
+								<InfTex>This is your items Ranking</InfTex>
 
-							</button>
-						</BtnItem>
+								<FashionBenchmark />
+								<p>
+									Your Shirt ranks on position <b>28</b> among{" "}
+									<b>500</b> other unique combinations of inputs entered
+									for Shirts. It is better than <b>1.15%</b> of total{" "}
+									<b>87</b> Shirts evaluate with the Staiy Product
+									Environmental Footprint Calculator.
+								</p>
+								<Socials title={"Tell your friends"} />
+								<CardResult />
+								<BtnItem>
+									<button
+										onClick={() => {
+											dispatch(calculatorActions.setReset())
+											handleHref("/wardrobe")
+										}}
+									>
+										SEE YOUR WARDROBE
+									</button>
+								</BtnItem>
+							</div>
+						)}
 					</div>
-				 }
-				
-				{!user &&
+				}
+
+				{!user && (
 					<RegBlock>
 						<h2>You want to see all your results?</h2>
 						<p>
-							Create an account, see all your results and get a 15% discount for
-							your first order! Get exclusive offers, original stories, events
-							and more.
+							Create an account, see all your results and get a 15% discount
+							for your first order! Get exclusive offers, original stories,
+							events and more.
 						</p>
-						<button onClick={() => handleHref('/register')} >
+						<button onClick={() => handleHref("/register")}>
 							register now
 						</button>
-
 					</RegBlock>
-				}
+				)}
 			</ResultsWrap>
 		</Wrapper>
 	)

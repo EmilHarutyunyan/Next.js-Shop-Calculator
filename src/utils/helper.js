@@ -13,14 +13,14 @@ export const addColorProperties = (arr, codeToCheck, color) => {
 	arr[index].color = color
 }
 
-export const fillWithColor = (countryCode, color = defaultColor, prevCount=null) => {
+export const fillWithColor = (countryCode, color = defaultColor, prevCount = null) => {
 	const pathCountrySVG = document.querySelectorAll("path.cls-1")
 
-		if (countryCode)
-			countryCode &&
-				[...pathCountrySVG].some(
-					el => el.dataset.id === countryCode && (el.style.fill = color)
-				)
+	if (countryCode)
+		countryCode &&
+			[...pathCountrySVG].some(
+				el => el.dataset.id === countryCode && (el.style.fill = color)
+			)
 }
 
 export const removeColor = (prevCount = null) => {
@@ -32,4 +32,3 @@ export const removeColor = (prevCount = null) => {
 				el => el.dataset.id === prevCount && (el.style.fill = "")
 			)
 }
-

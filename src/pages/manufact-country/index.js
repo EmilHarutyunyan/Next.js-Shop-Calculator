@@ -14,8 +14,8 @@ function ManufactCountry() {
 	const calc = useSelector(({ calculator }) => calculator)
 	
 	
-	const manufacturingCountryId = calc.manufacturingCountryId
-	const [countryName, setCountryName] = useState(manufacturingCountryId)
+	const manufacturingCountryName = calc.manufacturingCountryName
+	const [countryName, setCountryName] = useState(manufacturingCountryName)
 
 	const handleCountry = country => {
 		setCountryName(country)
@@ -31,8 +31,8 @@ function ManufactCountry() {
 
 
 	const addManufactCountry = async () => {
-		const manufacturingCountryId = countryName
-		await dispatch(calculatorActions.setManufactCountry({ manufacturingCountryId }))
+		const manufacturingCountryName = countryName
+		await dispatch(calculatorActions.setManufactCountry({ manufacturingCountryName }))
 	}
 	return (
 		<>

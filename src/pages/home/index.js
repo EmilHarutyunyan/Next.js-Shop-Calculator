@@ -16,6 +16,7 @@ import {
 	BtnTwo,
 	BtnWrap,
 	BtnItem,
+	Span,
 	Footer,
 } from "@/styles/pageStyle/Home.styles"
 function Home() {
@@ -38,15 +39,21 @@ function Home() {
 						</Desc>
 						<Text>
 							Fashion is the Second most polluting industry in the world.
-							Each year:
 						</Text>
+						<Span>Each year:</Span>
 					</HomeInfo>
 
 					<CardHome cards={CARDHOMEDATA} />
+					<Span>
+						It’s difficult as consumers to realize the impact of our clothes
+						due to little transparency.
+					</Span>
 				</HomeWrap>
 				<BtnWrap>
 					<BtnItem>
-						<BtnOne>visit shop</BtnOne>
+						<BtnOne onClick={() => router.push("https://staiy.com/")}>
+							visit shop
+						</BtnOne>
 					</BtnItem>
 					<BtnItem>
 						<BtnTwo onClick={() => router.push("/wardrobe")}>

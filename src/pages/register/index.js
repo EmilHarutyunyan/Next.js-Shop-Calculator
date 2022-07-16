@@ -69,7 +69,7 @@ function Register() {
 
 	const onSubmit = async data => {
 		await dispatch(authActions.authenticate(data))
-		
+		localStorage.setItem("reg", JSON.stringify(data))
 		if (error) {
 			setErrorMsg("User no register")
 		}
@@ -84,7 +84,7 @@ function Register() {
 
 
 		if(success){
-	reset()
+			reset()
 			router.push("/verificate")
 		}
 	},[success])
@@ -92,11 +92,11 @@ function Register() {
 	return (
 		<Wrapper>
 			<RegWrap>
-				{/* <VideoBanner
+				<VideoBanner
 					videoSrc={
 						"https://footprint-b2c.s3.eu-central-1.amazonaws.com/Textil.mp4"
 					}
-				/> */}
+				/>
 
 				<Title>Register to become a part of staiy!</Title>
 				<Desc>

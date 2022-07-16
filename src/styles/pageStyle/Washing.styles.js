@@ -5,9 +5,14 @@ export const WashingWrap = styled.div`
 `
 
 export const WashingItem = styled.div`
-margin-top: 55px;
+	margin-top: 55px;
 	& .input-code-washing {
-	   margin-left: 0;
+		margin-left: 0;
+	}
+	.read-washing {
+		div:first-of-type {
+			margin-bottom: 16px;
+		}
 	}
 `
 

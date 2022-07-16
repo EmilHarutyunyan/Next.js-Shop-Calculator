@@ -2,7 +2,7 @@ export const WARDROBEDATA = [
 	{
 		id: Math.random(),
 		icon: "/static/svg/add-icon.svg",
-		text: "Add Item",
+		name: "Add Item",
 	},
 ]
 export const WARDROB_RESULT = [

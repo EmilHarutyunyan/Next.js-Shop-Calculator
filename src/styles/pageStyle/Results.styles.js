@@ -71,13 +71,13 @@ export const Equa = styled.div`
 	}
 `
 export const RegBlock = styled.div`
-	background-color:#fff;
-	padding:50px 50px 50px 30px;
-	width:100%;
-	max-width:608px;
-	margin-top:50px;
-	margin-bottom:100px;
-	// box-shadow
+	background-color: #fff;
+	padding: 50px 50px 50px 30px;
+	width: 100%;
+	max-width: 608px;
+	margin-top: 50px;
+	margin-bottom: 100px;
+	box-shadow: 0px 0px 15px #00000099;
 
 	button {
 		all: unset;
@@ -92,11 +92,11 @@ export const RegBlock = styled.div`
 		cursor: pointer;
 		-webkit-transition: all 0.3s ease-in;
 		transition: all 0.3s ease-in;
-		margin-top:50px;
+		margin-top: 50px;
 	}
 `
 export const RegItem = styled.div`
-	max-width:
+	
 `;
 export const BtnItem = styled.div`
 			text-align:center;

@@ -26,7 +26,7 @@ function CheckResult() {
 	const calc = useSelector(({ calculator }) => calculator)
 	const checkResult = [
 		{
-			manufacturingCountryId: calc.manufacturingCountryId,
+			manufacturingCountryName: calc.manufacturingCountryName,
 			materialDistribution: calc.materialDistribution,
 			washMachineSetting: calc.washMachineSetting,
 			dryingMethod: calc.dryingMethod,
@@ -36,16 +36,12 @@ function CheckResult() {
 	]
 	const handleClick = () => {
 		async function fetchData() {
+			try {
+				const data = await axios.post(`${API_URL}b2c/footprint/`, calc)
+			} catch (error) {
+				router.push('/results')
+			}
 			
-			const data = await axios.post(`${API_URL}b2c/footprint/`,calc)
-			setMaterialName(data.data)
-			setMaterialInfo([
-				{
-					_id: Math.random(),
-					name: "Material",
-					pricent: 0,
-				},
-			])
 		}
 		fetchData()
 
@@ -55,13 +51,26 @@ function CheckResult() {
 		<Wrapper iconColor={"white"}>
 			<CountryWrap>
 				<HeroBanner image={"/static/images/selectcountry.webp"} />
-				<Heading text={"Specify your item."} />
+
+				{checkResult[0]?.materialDistribution?.length &&
+				checkResult[0].monthlyLaundryFrequency &&
+				checkResult[0].washingTemperature &&
+				checkResult[0].washMachineSetting ? (
+					<Heading text={"Bravo! You completed the washing Label."} />
+				) : (
+					<Heading text={"Specify your item."} />
+				)}
 				<Content image={"/static/images/label.png"}>
 					<Item>
 						<Items>
 							<span>Made in</span>
-							{checkResult[0].manufacturingCountryId ? (
-								<p>{checkResult[0].manufacturingCountryId}</p>
+							{checkResult[0].manufacturingCountryName ? (
+								<p
+									style={{ cursor: "pointer" }}
+									onClick={() => router.push("/manufact-country")}
+								>
+									{checkResult[0].manufacturingCountryName}
+								</p>
 							) : (
 								<BtnWrap>
 									<BtnItem
@@ -74,7 +83,7 @@ function CheckResult() {
 						</Items>
 						<Items>
 							<span>Made out of</span>
-							{!checkResult[0].manufacturingCountryId ? (
+							{!checkResult[0].manufacturingCountryName ? (
 								<BtnWrap>
 									<BtnItem disable>Choose the materials</BtnItem>
 								</BtnWrap>
@@ -85,11 +94,18 @@ function CheckResult() {
 									</BtnItem>
 								</BtnWrap>
 							) : (
-								<MaterialInfo />
+								<div
+									style={{ cursor: "pointer" }}
+									onClick={() => router.push("/material")}
+								>
+									<MaterialInfo />
+								</div>
 							)}
 						</Items>
+
 						<Items>
 							<span>Care instructions</span>
+
 							{!checkResult[0]?.materialDistribution?.length > 0 ? (
 								<BtnWrap>
 									<BtnItem disable>Choose washing habits</BtnItem>
@@ -104,13 +120,26 @@ function CheckResult() {
 									</BtnItem>
 								</BtnWrap>
 							) : (
-								<WashingInfo />
+								<div
+									style={{ cursor: "pointer" }}
+									onClick={() => router.push("/washing")}
+								>
+									<WashingInfo />
+								</div>
 							)}
 						</Items>
 						<Items>
-							<p>Or go straight to your </p>
-
-							<div onClick={() => handleClick()}>RESULT</div>
+							{checkResult[0]?.materialDistribution?.length &&
+							checkResult[0].monthlyLaundryFrequency &&
+							checkResult[0].washingTemperature &&
+							checkResult[0].washMachineSetting ? (
+								<p>See your </p>
+							) : (
+								<p>Or go straight to your </p>
+							)}
+							<div className="result-btn" onClick={() => handleClick()}>
+								RESULT
+							</div>
 							<ImgWrap>
 								<img src="/static/images/barcode.png" alt="barcode" />
 							</ImgWrap>

@@ -64,21 +64,21 @@ function Login() {
 	}
 	return (
 		<Wrapper>
-			{/* <VideoBanner
+			<VideoBanner
 				videoSrc={
 					"https://footprint-b2c.s3.eu-central-1.amazonaws.com/Textil.mp4"
 				}
-			/> */}
+			/>
 			<LoginWrap>
 				<Title>Login to enter your Wardrobe.</Title>
 				<Desc>
 					Please Register to save your footprint results. You’ll find them in
-					your Guardrobe in the future. Happy calculating!"
+					your Wardrobe in the future. Happy calculating!"
 				</Desc>
 				{errorMsg && <Error>{errorMsg}</Error>}
 				<Form onSubmit={handleSubmit(onSubmit)}>
 					<InputItem>
-						<input {...register("email")} placeholder="Name" />
+						<input {...register("email")} placeholder="Email" />
 						{errors.email?.message && <Error>{errors.email?.message}</Error>}
 					</InputItem>
 
@@ -94,9 +94,10 @@ function Login() {
 					</InputItem>
 					<InputItem className="login-submit">
 						<button type="submit">Login</button>
-						<button type="button" onClick={()=>router.push('/register')}>register</button>
+						<button type="button" onClick={() => router.push("/register")}>
+							register
+						</button>
 					</InputItem>
-					
 				</Form>
 			</LoginWrap>
 		</Wrapper>

@@ -4,9 +4,9 @@ import ReadMore from "@/components/readMore"
 import SelectMaterial from "@/components/SelectMaterial"
 import VideoBanner from "@/components/videoBanner"
 import Wrapper from "@/components/wrapper"
-import { useRouter } from "next/router"
+
 import React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import {
 	Count,
 	MaterialWrap,
@@ -26,6 +26,7 @@ import axios from "axios"
 import { API_URL } from "../../config/dev"
 import { useDispatch, useSelector } from "react-redux"
 import { calculatorActions } from "@/redux/actions"
+import InputPricent from "../../components/inputPricent"
 // export const getStaticProps = async () => {
 // 	const response = await fetch("https://api-prod.staiy.com/material")
 // 	const data = await response.text()
@@ -37,11 +38,14 @@ import { calculatorActions } from "@/redux/actions"
 function Material() {
 	const dispatch = useDispatch()
 	const calc = useSelector(({ calculator }) => calculator)
-	
+
 	const [materialName, setMaterialName] = useState([])
 	const [materialInfo, setMaterialInfo] = useState([])
+	const countMaterial = 3
+	const pricentRef = useRef("")
 	const handlePricent = (_id, value) => {
 		const tempMaterial = []
+
 		materialInfo.map(item => {
 			if (_id === item._id) {
 				item.pricent = value
@@ -51,10 +55,15 @@ function Material() {
 		setMaterialInfo(tempMaterial)
 	}
 	const handleText = (oldName, newName) => {
-		
 		const tempMaterial = materialInfo.map(item => {
-			
-			if (item.name === oldName || item._id === newName._id) {
+			if (oldName === "Msterial") {
+				if (item.name === oldName || item._id === newName._id) {
+					return {
+						...item,
+						...newName,
+					}
+				}
+			} else if (item.name === oldName || item._id === newName._id) {
 				return {
 					...item,
 					...newName,
@@ -74,8 +83,8 @@ function Material() {
 		}
 	}
 	const addMaterial = async () => {
-		const materialDistribution = materialInfo.map((item) => {
-			const {_id,pricent} = item
+		const materialDistribution = materialInfo.map(item => {
+			const { _id, pricent } = item
 			const propation = parseInt(pricent) / 100
 			return { _id, propation }
 		})
@@ -84,7 +93,7 @@ function Material() {
 				materialDistribution: materialDistribution,
 			})
 		)
-}
+	}
 
 	useEffect(() => {
 		async function fetchData() {
@@ -100,6 +109,12 @@ function Material() {
 		}
 		fetchData()
 	}, [])
+
+	useEffect(() => {
+		if (pricentRef.current) {
+			console.log(pricentRef.current, "pricentRef.current")
+		}
+	}, [pricentRef])
 	return (
 		<Wrapper iconColor={"white"}>
 			<MaterialLayout>
@@ -119,6 +134,7 @@ function Material() {
 					{materialInfo.length > 0 &&
 						materialInfo.map((material, idx) => {
 							const { _id, name, pricent } = material
+
 							return (
 								<MaterialItem key={_id}>
 									<MaterialContetn>
@@ -134,26 +150,32 @@ function Material() {
 											/>
 
 											<Pricent>
-												<input
-													type="number"
-													value={pricent}
-													onChange={e =>
-														handlePricent(_id, e.target.value)
-													}
+												<InputPricent
+													pricent={pricent}
+													handlePricent={handlePricent}
+													id={_id}
 												/>
 												<p>%</p>
 											</Pricent>
 											<ActionBtn
 												onClick={() => {
-													setMaterialInfo([
-														...materialInfo,
-														{
-															_id: Math.random(),
-															name: "Material",
-															pricent: 0,
-														},
-													])
-												
+													console.log(
+														materialInfo.length,
+														"materialInfo.lengthmaterialInfo.length"
+													)
+													if (
+														materialInfo.length <
+														countMaterial
+													) {
+														setMaterialInfo([
+															...materialInfo,
+															{
+																_id: Math.random(),
+																name: "Material",
+																pricent: 0,
+															},
+														])
+													}
 												}}
 											>
 												<Items>

@@ -19,29 +19,27 @@ import { calculatorActions } from "@/redux/actions"
 
 
 // 	return {
-// 		props: { products: data },
+// 		products: { products: data },
 // 	}
 // }
 function Product() {
+	
 	const dispatch = useDispatch()
 	const calc = useSelector(({ calculator }) => calculator)
 	const itemTypeId = calc.itemTypeId
 	const [productsGender, setProductsGender] = useState([])
 	const [productGender, setProductGender] = useState("")
-	const handlerProductGender = text => {
+	const handlerProductGender = (text) => {
 		const productName = productGender.name
-
-		if (productName === text.toLowerCase()) {
+		
+		if (productName === text) {
 			setProductGender("")
 			return
 		}
-		const itemType = productsGender.filter(
-			item => item.name.toLowerCase() === text.toLowerCase()
-		)
+		const itemType = productsGender.filter(item => item.name === text)
 		const { _id, name } = itemType[0]
 
-		const lowerName = name.toLowerCase()
-		setProductGender({ itemTypeId: _id, name: lowerName })
+		setProductGender({ itemTypeId: _id, name })
 	}
 
 	const navClick = info => {
@@ -54,7 +52,6 @@ function Product() {
 	const addProduct = async () => {
 		const itemTypeId = productGender.itemTypeId
 
-		
 		await dispatch(calculatorActions.setProduct({ itemTypeId }))
 	}
 
@@ -62,22 +59,22 @@ function Product() {
 		async function fetchData() {
 			const response = await axios.get(`${API_URL}item-type`)
 			const data = response.data
+			console.log(data, "datadatadata")
+			// const joinData = PRODUCT.map((item, idx) => {
+			// 	return {
+			// 		...item,
+			// 		...data[idx],
+			// 	}
+			// })
 
-			const joinData = PRODUCT.map((item, idx) => {
-				return {
-					...item,
-					...data[idx],
-				}
-			})
-			
-			if (itemTypeId) {
-				const itemProduct = data.filter((item) => item._id === itemTypeId)
-				const { _id,name } = itemProduct[0]
-				const lowerName = name.toLowerCase()
-				setProductGender({ itemTypeId: _id, name: lowerName })
-			
-			}
-			setProductsGender(joinData)
+			// if (itemTypeId) {
+			// 	const itemProduct = data.filter((item) => item._id === itemTypeId)
+			// 	const { _id,name } = itemProduct[0]
+			// 	const lowerName = name.toLowerCase()
+			// 	setProductGender({ itemTypeId: _id, name: lowerName })
+
+			// }
+			setProductsGender(data)
 		}
 		fetchData()
 	}, [])

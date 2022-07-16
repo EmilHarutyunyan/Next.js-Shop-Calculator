@@ -31,7 +31,14 @@ export const Item = styled.div`
 
 export const Items = styled.div`
 	padding-bottom: 20px;
-
+	.result-btn {
+		cursor: pointer;
+		margin-bottom: 5px;
+	}
+	.washing-result {
+		display: flex;
+		
+	}
 `
 
 export const BtnWrap = styled.div`

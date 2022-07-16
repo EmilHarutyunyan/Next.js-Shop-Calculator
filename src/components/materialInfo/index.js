@@ -34,10 +34,10 @@ function MaterialInfo() {
 	<>
 		{materials && materials.map(item => {
 			const { name, propation } = item
-			const tokos = propation * 100
+			const tokos = Math.floor(propation * 100)
 			
 			return (
-				<Info>
+				<Info style={{ cursor: "pointer" }}>
 					<span>{tokos}%</span>
 					<span>{name}</span>
 				</Info>

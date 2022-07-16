@@ -19,6 +19,6 @@ export const CARDHOMEDATA = [
 				icon: "/static/icons/staiy-bin.png",
 				info: "412 Bn.",
 				text:
-					"412 Billion Euros* worth of fashion waste is generated annually. It’s difficult as consumers to realize the impact of our clothes due to little transparency.",
+					"412 Billion Euros* worth of fashion waste is generated annually."
 			},
 		]

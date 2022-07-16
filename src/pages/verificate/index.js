@@ -15,11 +15,11 @@ import {
 	Title,
 	Desc,
 } from "@/styles/pageStyle/MyProduct.styles"
-
-
+import { authActions } from "@/redux/actions"
+import { useDispatch } from "react-redux"
 function Verificate() {
 	const router = useRouter()
-
+	const dispatch = useDispatch()
 	const [verifCode, setVerifCode] = useState("")
 	const [verifMail, setVerifMail] = useState("")
 	const [errorMsg,setErrorMsg] = useState("")
@@ -30,8 +30,16 @@ function Verificate() {
 					verificationCode: verifCode,
 					email: verifMail,
 				})
-				
+				debugger
 				if (data.status === 201) {
+					const reg = localStorage.getItem("reg")
+						? JSON.parse(localStorage.getItem("reg"))
+						: ""
+					
+					const login = { email: verifMail ,password:reg.password}
+					debugger
+					await dispatch(authActions.signIn(login))
+					localStorage.removeItem("reg")
 					router.push('/wardrobe')
 				}
 			} catch (error) {
@@ -44,11 +52,11 @@ function Verificate() {
 	return (
 		<Wrapper>
 			<MyProductWrap>
-				{/* <VideoBanner
+				<VideoBanner
 					videoSrc={
 						"https://footprint-b2c.s3.eu-central-1.amazonaws.com/Textil.mp4"
 					}
-				/> */}
+				/>
 				<Title>Verificate</Title>
 				<Form onSubmit={handleSubmit}>
 					{errorMsg && <p style={{color:'red'}}>{errorMsg}</p>}

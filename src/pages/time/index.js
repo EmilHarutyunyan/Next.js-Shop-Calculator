@@ -10,15 +10,20 @@ import { useDispatch, useSelector } from "react-redux"
 import { calculatorActions } from "@/redux/actions"
 function Time() {
 	const calc = useSelector(({ calculator }) => calculator)
-	const productAgeTimescale = calc.productAgeTimescale ? new Date().getFullYear() - calc.productAgeTimescale : null
+	const productAgeTimescale = calc.productAgeTimescale || null
 	const [code, setCode] = useState(productAgeTimescale)
 	const [isCode,setIsCode]= useState(!!calc.productAgeTimescale)
 	const [codeLength, setCodeLength] = useState([])
 	const dispatch = useDispatch()
+	
 	useEffect(() => {
+		debugger
 		if (codeLength.length === 4) {
+			debugger
 			addTime()
 			setIsCode(true)
+		} else {
+			setIsCode(false)
 		}
 	}, [code])
 
@@ -36,7 +41,7 @@ function Time() {
 			const d = new Date();
 			const year = d.getFullYear();
 			const productAgeAmount = year - code
-			const productAgeTimescale = `${code}`;
+			const productAgeTimescale = `years`
 			await dispatch(calculatorActions.setProductAge({productAgeTimescale}))
 			await dispatch(calculatorActions.setProductAgeAmount({ productAgeAmount }))
 	}
@@ -57,6 +62,9 @@ function Time() {
 					<InputCode
 						length={4}
 						numberCode={code}
+						minVal={"2000"}
+						maxVal={"2022"}
+						defaultValue={["2", "0", "", ""]}
 						collectCode={inputCode => {
 							const num = inputCode.reduce(function (acc, val) {
 								return acc + val
@@ -70,9 +78,8 @@ function Time() {
 
 			<NavBtn
 				pathPrev="/wardrobe"
-				pathNext={isCode ? "/homecountry" : ""}
+				pathNext={isCode ? "/choose-gender" : ""}
 				navClick={navClick}
-				
 			/>
 		</Wrapper>
 	)

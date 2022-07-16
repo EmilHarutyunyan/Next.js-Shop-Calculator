@@ -26,20 +26,17 @@ function Header({ color = "black" }) {
 
 				<ContentItem className="header-block">
 					<ImgWrapLog className="header-block-login">
-						{token && (
-							<img
-								className="header-login"
-								src={`/static/icons/login-${color}.png`}
-							/>
-						)}
+						
+							<Link href="/wardrobe">
+								<a>
+									<img
+										className="header-login"
+										src={`/static/icons/login-${color}.png`}
+									/>
+								</a>
+							</Link>
+						
 					</ImgWrapLog>
-
-					<ImgWrap>
-						<img
-							className="header-close"
-							src={`/static/icons/close-${color}.png`}
-						/>
-					</ImgWrap>
 				</ContentItem>
 			</Content>
 		</Wrapper>
